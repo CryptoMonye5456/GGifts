@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GGifts - Game Gift Card Store</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .hero-bg {
+        background-image: url('https://reloadhero-cms.imgix.net/305a12fc-1074-41d0-8116-2504c187bb94.webp?auto=format&fit=max&w=3840');
+        background-size: cover;
+        background-position: center;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-900 text-white scroll-smooth">
+    <!-- Navbar -->
+    <nav class="bg-gray-800 px-6 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-indigo-400">GGifts</h1>
+      <div class="space-x-6">
+        <a href="#" class="text-gray-300 hover:text-white">Home</a>
+        <a href="#freefire" class="text-gray-300 hover:text-white">Free Fire</a>
+        <a href="#fortnite" class="text-gray-300 hover:text-white">Fortnite</a>
+        <a href="#netflix" class="text-gray-300 hover:text-white">Netflix</a>
+        <a href="#games" class="text-gray-300 hover:text-white">Games</a>
+        <a href="#checkout" class="text-gray-300 hover:text-white">Checkout</a>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="text-center py-20 hero-bg">
+      <div class="bg-black bg-opacity-60 py-10 px-4 rounded-lg inline-block">
+        <h2 class="text-4xl font-extrabold mb-4">Buy Gift Cards For Games</h2>
+        <p class="text-lg text-gray-200">Fast, Secure & Easy Payments with GGifts</p>
+        <a href="#freefire" class="mt-6 inline-block bg-white text-black font-semibold py-2 px-4 rounded hover:bg-gray-100">
+          Start Shopping
+        </a>
+      </div>
+    </section>
+
+    <!-- Search Filter -->
+    <section class="px-6 py-4 bg-gray-900">
+      <input
+        type="text"
+        placeholder="Search games..."
+        id="searchInput"
+        class="w-full p-3 rounded bg-gray-800 text-white border border-gray-700"
+        onkeyup="filterProducts()"
+      />
+    </section>
+
+    <!-- Sections -->
+    <section id="freefire" class="px-6 py-12 bg-gray-900">
+      <h3 class="text-3xl font-bold text-center mb-10">Free Fire 💎</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        ${createProduct("Free Fire", "100 + 10", "3.5 TND")}
+        ${createProduct("Free Fire", "210 + 21", "7 TND")}
+        ${createProduct("Free Fire", "530 + 53", "18 TND")}
+        ${createProduct("Free Fire", "1080 + 108", "31 TND")}
+      </div>
+    </section>
+
+    <section id="fortnite" class="px-6 py-12 bg-gray-900">
+      <h3 class="text-3xl font-bold text-center mb-10">Fortnite V-Buck 🎮</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        ${createProduct("Fortnite", "V-Bucks 1000", "31 TND")}
+        ${createProduct("Fortnite", "V-Bucks 2800", "72 TND")}
+        ${createProduct("Fortnite", "V-Bucks 5000", "114 TND")}
+      </div>
+    </section>
+
+    <section id="netflix" class="px-6 py-12 bg-gray-900">
+      <h3 class="text-3xl font-bold text-center mb-10">Netflix - Premium 📺</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        ${createProduct("Netflix", "Premium Plan 1 Month", "77 TND")}
+        ${createProduct("Netflix", "Premium Plan 12 Month", "545 TND")}
+      </div>
+    </section>
+
+    <section id="games" class="px-6 py-12 bg-gray-900">
+      <h3 class="text-3xl font-bold text-center mb-10">Games 🕹️</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        ${createProduct("GTA V", "", "46 TND")}
+        ${createProduct("FC 25", "", "30 TND")}
+      </div>
+    </section>
+
+    <!-- Checkout -->
+    <section id="checkout" class="px-6 py-16 bg-gray-800">
+      <h3 class="text-3xl font-bold text-center mb-10">To buy connect me on WhatsApp</h3>
+      <h3 class="text-3xl font-bold text-center mb-10">(+216) 26 905 747</h3>
+      <h3 class="text-2xl font-bold text-center mb-10">Payment methods : D17 / Flouce / Binance / Bybit</h3>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-6 text-center text-gray-400 text-sm">
+      © 2025 GGifts. All rights reserved.
+    </footer>
+
+    <script>
+      function filterProducts() {
+        const input = document.getElementById("searchInput").value.toLowerCase()
+        const cards = document.querySelectorAll("section[id] .grid > div")
+        cards.forEach((card) => {
+          const title = card.querySelector("h4").innerText.toLowerCase()
+          card.style.display = title.includes(input) ? "block" : "none"
+        })
+      }
+
+      // Replace ${...} with real HTML since templates don't render here
+      document.body.innerHTML = document.body.innerHTML.replace(/\$\{createProduct\((.*?)\)\}/g, (_, args) => {
+        const [name, detail, price] = args.split(',').map(s => s.trim().replace(/['"]/g, ''));
+        const logoMap = {
+          "Free Fire": "https://images.seeklogo.com/logo-png/50/2/free-fire-logo-png_seeklogo-500424.png",
+          "Fortnite": "https://images.seeklogo.com/logo-png/33/2/fortnite-logo-png_seeklogo-330839.png",
+          "Netflix": "https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg",
+          "GTA V": "https://images.seeklogo.com/logo-png/45/2/grand-theft-auto-v-logo-png_seeklogo-455401.png",
+          "FC 25": "https://images.seeklogo.com/logo-png/50/3/ea-sports-logo-png_seeklogo-501229.png"
+        };
+        return \`
+        <div class="bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition">
+          <img src="\${logoMap[name] || logoMap['GTA V']}" alt="\${name}" class="w-16 h-16 mx-auto mb-4" />
+          <h4 class="text-xl font-bold text-center mb-2">\${name} \${detail}</h4>
+          <p class="text-center text-gray-400 mb-1">Instant delivery</p>
+          <p class="text-center text-indigo-400 mb-4">Price: \${price}</p>
+          <a href="#checkout" class="block w-full text-center bg-indigo-500 hover:bg-indigo-600 py-2 rounded font-semibold">
+            Buy Now
+          </a>
+        </div>
+        \`;
+      });
+    </script>
+  </body>
+</html>
