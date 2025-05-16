@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>GGifts Admin Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-900 text-white min-h-screen flex items-center justify-center">
+    <!-- Login Form -->
+    <div id="loginSection" class="bg-gray-800 p-8 rounded-lg w-full max-w-sm space-y-4">
+      <h1 class="text-2xl font-bold text-center text-indigo-400">GGifts Admin Login</h1>
+      <input
+        type="text"
+        id="username"
+        placeholder="Username"
+        class="w-full p-2 rounded bg-gray-700 text-white"
+      />
+      <input
+        type="password"
+        id="password"
+        placeholder="Password"
+        class="w-full p-2 rounded bg-gray-700 text-white"
+      />
+      <button onclick="login()" class="w-full bg-indigo-500 hover:bg-indigo-600 py-2 rounded font-bold">
+        Login
+      </button>
+      <p id="error" class="text-red-500 text-sm text-center hidden">Incorrect username or password</p>
+    </div>
+
+    <!-- Admin Panel (Hidden by default) -->
+    <div id="adminPanel" class="hidden flex-col gap-6 p-8 max-w-4xl mx-auto w-full">
+      <h1 class="text-3xl font-bold text-indigo-400 mb-6">GGifts Admin Panel</h1>
+
+      <form id="productForm" class="bg-gray-800 p-6 rounded-lg space-y-4">
+        <div>
+          <label class="block mb-1">Product Name</label>
+          <input type="text" id="name" required class="w-full p-2 rounded bg-gray-700 text-white" />
+        </div>
+        <div>
+          <label class="block mb-1">Details (e.g. 530 + 53)</label>
+          <input type="text" id="detail" class="w-full p-2 rounded bg-gray-700 text-white" />
+        </div>
+        <div>
+          <label class="block mb-1">Price (e.g. 18 TND)</label>
+          <input type="text" id="price" required class="w-full p-2 rounded bg-gray-700 text-white" />
+        </div>
+        <button type="submit" class="bg-indigo-500 hover:bg-indigo-600 px-4 py-2 rounded text-white font-bold">Generate Product</button>
+      </form>
+
+      <div>
+        <h2 class="text-2xl font-bold mb-4">Product Preview</h2>
+        <div id="preview" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
+
+        <h2 class="text-2xl font-bold mt-10 mb-4">HTML Code (Copy & Paste)</h2>
+        <textarea id="codeOutput" class="w-full p-4 bg-gray-800 rounded text-green-400 font-mono" rows="8" readonly></textarea>
+      </div>
+    </div>
+
+    <script>
+      const logoMap = {
+        "Free Fire": "https://images.seeklogo.com/logo-png/50/2/free-fire-logo-png_seeklogo-500424.png",
+        "Fortnite": "https://images.seeklogo.com/logo-png/33/2/fortnite-logo-png_seeklogo-330839.png",
+        "Netflix": "https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg",
+        "GTA V": "https://images.seeklogo.com/logo-png/45/2/grand-theft-auto-v-logo-png_seeklogo-455401.png",
+        "FC 25": "https://images.seeklogo.com/logo-png/50/3/ea-sports-logo-png_seeklogo-501229.png",
+        "PUBG": "https://images.seeklogo.com/logo-png/58/2/pubg-corporation-logo-png_seeklogo-583904.png",
+        "Schedule I": "https://www.scheduleonegame.com/img/extended-logo.png",
+        "Red Dead Redemption 2": "https://images.seeklogo.com/logo-png/45/2/red-dead-redemption-2-logo-png_seeklogo-457375.png",
+        "Minecraft": "https://images.seeklogo.com/logo-png/31/2/minecraft-logo-png_seeklogo-316451.png"
+      };
+
+      function login() {
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+        if (username === "ademgr" && password === "ademgr398") {
+          document.getElementById("loginSection").classList.add("hidden");
+          document.getElementById("adminPanel").classList.remove("hidden");
+        } else {
+          document.getElementById("error").classList.remove("hidden");
+        }
+      }
+
+      document.getElementById("productForm").addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const name = document.getElementById("name").value;
+        const detail = document.getElementById("detail").value;
+        const price = document.getElementById("price").value;
+        const logo = logoMap[name] || logoMap["GTA V"];
+
+        const html = `
+<div class="bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition">
+  <img src="${logo}" alt="${name}" class="w-16 h-16 mx-auto mb-4" />
+  <h4 class="text-xl font-bold text-center mb-2">${name} ${detail}</h4>
+  <p class="text-center text-gray-400 mb-1">Instant delivery</p>
+  <p class="text-center text-indigo-400 mb-4">Price: ${price}</p>
+  <a href="checkout.html" class="block w-full text-center bg-indigo-500 hover:bg-indigo-600 py-2 rounded font-semibold">
+    Buy Now
+  </a>
+</div>`;
+
+        document.getElementById("preview").innerHTML = html;
+        document.getElementById("codeOutput").value = html.trim();
+      });
+    </script>
+  </body>
+</html>
