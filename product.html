@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Product Details - GGifts</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white px-6 py-10">
+
+  <div class="max-w-2xl mx-auto bg-gray-800 rounded-xl shadow-lg p-6">
+    <h2 class="text-3xl font-bold mb-4" id="productName">Loading...</h2>
+    <img id="productImage" src="" alt="" class="w-20 h-20 mb-4" />
+
+    <p class="mb-4 text-gray-300" id="productDetail"></p>
+    <p class="mb-4 text-indigo-400 font-bold" id="productPrice"></p>
+
+    <h3 class="text-xl font-semibold mt-6 mb-2">How to Use:</h3>
+    <ul class="list-disc list-inside text-gray-300">
+      <li>Click the button below to connect on WhatsApp</li>
+      <li>Send a screenshot or product name</li>
+      <li>Proceed with payment (D17, Binance, Bybit, etc.)</li>
+      <li>Receive your gift instantly</li>
+    </ul>
+
+    <a href="index.html" class="mt-6 inline-block bg-indigo-600 hover:bg-indigo-700 py-2 px-4 rounded text-white font-semibold">
+      ← Back to Store
+    </a>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const name = params.get("name");
+    const detail = params.get("detail");
+    const price = params.get("price");
+
+    const logoMap = {
+      "Free Fire": "https://images.seeklogo.com/logo-png/50/2/free-fire-logo-png_seeklogo-500424.png",
+      "Fortnite": "https://images.seeklogo.com/logo-png/33/2/fortnite-logo-png_seeklogo-330839.png",
+      "Netflix": "https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg",
+      "GTA V": "https://images.seeklogo.com/logo-png/45/2/grand-theft-auto-v-logo-png_seeklogo-455401.png",
+      "FC 25": "https://images.seeklogo.com/logo-png/50/3/ea-sports-logo-png_seeklogo-501229.png",
+      "PUBG": "https://images.seeklogo.com/logo-png/58/2/pubg-corporation-logo-png_seeklogo-583904.png",
+      "Schedule I": "https://www.scheduleonegame.com/img/extended-logo.png",
+      "Red Dead Redemption 2": "https://images.seeklogo.com/logo-png/45/2/red-dead-redemption-2-logo-png_seeklogo-457375.png",
+      "Minecraft": "https://images.seeklogo.com/logo-png/31/2/minecraft-logo-png_seeklogo-316451.png",
+      "Roblox": "https://images.seeklogo.com/logo-png/36/2/roblox-logo-png_seeklogo-365972.png",
+      "Forza Horizon 5": "https://images.seeklogo.com/logo-png/40/2/forza-horizon-5-logo-png_seeklogo-406612.png"
+    };
+
+    document.getElementById("productName").textContent = `${name} ${detail || ""}`;
+    document.getElementById("productDetail").textContent = detail ? `Details: ${detail}` : "No additional detail.";
+    document.getElementById("productPrice").textContent = `Price: ${price}`;
+    document.getElementById("productImage").src = logoMap[name] || "";
+    document.getElementById("productImage").alt = name;
+  </script>
+
+</body>
+</html>
