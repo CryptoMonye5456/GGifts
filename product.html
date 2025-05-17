@@ -24,13 +24,70 @@
         <li>Receive your gift instantly</li>
       </ul>
 
-      <div class="mt-6 flex gap-4 flex-wrap">
-        <a href="https://ggifts.vercel.app/" class="bg-indigo-600 hover:bg-indigo-700 py-2 px-4 rounded text-white font-semibold">
-          ← Back to Store
+     <div class="mt-6 flex gap-4 flex-wrap">
+    <a href="https://ggifts.vercel.app/" class="bg-indigo-600 hover:bg-indigo-700 py-2 px-4 rounded text-white font-semibold">
+      ← Back to Store
+    </a>
+    <a href="https://wa.me/21626905747" target="_blank" class="bg-green-600 hover:bg-green-700 py-2 px-4 rounded text-white font-semibold">
+      📲 WhatsApp
+    </a>
+    <!-- Buy Now button -->
+<!-- Buy Now button -->
+<!-- Buy Now button -->
+<button id="buyNowBtn" class="bg-green-600 hover:bg-green-700 py-2 px-4 rounded text-white font-semibold">
+  Buy Now
+</button>
+
+<!-- Payment Methods Modal -->
+<div id="paymentModal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center hidden">
+  <div class="bg-gray-800 rounded-lg p-6 max-w-sm w-full text-white relative">
+    <button id="closeModal" class="absolute top-2 right-3 text-gray-400 hover:text-white text-2xl font-bold">&times;</button>
+    <h2 class="text-2xl font-bold mb-4">Payment Methods</h2>
+    <ul class="list-disc list-inside space-y-2 text-lg">
+      <li>
+        <a href="https://d17.tn/ar" target="_blank" class="hover:underline text-indigo-400">
+          D17
         </a>
-        <a href="https://wa.me/21626905747" target="_blank" class="bg-green-600 hover:bg-green-700 py-2 px-4 rounded text-white font-semibold">
-          📲 WhatsApp
+      </li>
+      <li>
+        <a href="#" target="_blank" class="hover:underline text-indigo-400">
+          Flouce
         </a>
+      </li>
+      <li>
+        <a href="https://www.binance.com/" target="_blank" class="hover:underline text-indigo-400">
+          Binance
+        </a>
+      </li>
+      <li>
+        <a href="https://www.bybit.com/" target="_blank" class="hover:underline text-indigo-400">
+          Bybit
+        </a>
+      </li>
+    </ul>
+    <p class="mt-4 italic text-gray-400">Please contact us on WhatsApp after payment.</p>
+  </div>
+</div>
+
+<script>
+  const buyNowBtn = document.getElementById('buyNowBtn');
+  const paymentModal = document.getElementById('paymentModal');
+  const closeModal = document.getElementById('closeModal');
+
+  buyNowBtn.addEventListener('click', () => {
+    paymentModal.classList.remove('hidden');
+  });
+
+  closeModal.addEventListener('click', () => {
+    paymentModal.classList.add('hidden');
+  });
+
+  paymentModal.addEventListener('click', (e) => {
+    if (e.target === paymentModal) {
+      paymentModal.classList.add('hidden');
+    }
+  });
+</script>
       </div>
     </div>
   </main>
