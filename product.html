@@ -6,27 +6,38 @@
   <title>Product Details - GGifts</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-900 text-white px-6 py-10">
+<body class="bg-gray-900 text-white flex flex-col min-h-screen">
 
-  <div class="max-w-2xl mx-auto bg-gray-800 rounded-xl shadow-lg p-6">
-    <h2 class="text-3xl font-bold mb-4" id="productName">Loading...</h2>
-    <img id="productImage" src="" alt="" class="w-20 h-20 mb-4" />
+  <main class="flex-grow px-6 py-10">
+    <div class="max-w-2xl mx-auto bg-gray-800 rounded-xl shadow-lg p-6">
+      <h2 class="text-3xl font-bold mb-4" id="productName">Loading...</h2>
+      <img id="productImage" src="" alt="" class="w-20 h-20 mb-4" />
 
-    <p class="mb-4 text-gray-300" id="productDetail"></p>
-    <p class="mb-4 text-indigo-400 font-bold" id="productPrice"></p>
+      <p class="mb-4 text-gray-300" id="productDetail"></p>
+      <p class="mb-4 text-indigo-400 font-bold" id="productPrice"></p>
 
-    <h3 class="text-xl font-semibold mt-6 mb-2">How to Use:</h3>
-    <ul class="list-disc list-inside text-gray-300">
-      <li>Click the button below to connect on WhatsApp</li>
-      <li>Send a screenshot or product name</li>
-      <li>Proceed with payment (D17, Binance, Bybit, etc.)</li>
-      <li>Receive your gift instantly</li>
-    </ul>
+      <h3 class="text-xl font-semibold mt-6 mb-2">How to Use:</h3>
+      <ul class="list-disc list-inside text-gray-300">
+        <li>Click the button below to connect on WhatsApp</li>
+        <li>Send a screenshot or product name</li>
+        <li>Proceed with payment (D17, Binance, Bybit, Flouce, Face to Face.)</li>
+        <li>Receive your gift instantly</li>
+      </ul>
 
-    <a href="index.html" class="mt-6 inline-block bg-indigo-600 hover:bg-indigo-700 py-2 px-4 rounded text-white font-semibold">
-      ← Back to Store
-    </a>
-  </div>
+      <div class="mt-6 flex gap-4 flex-wrap">
+        <a href="index.html" class="bg-indigo-600 hover:bg-indigo-700 py-2 px-4 rounded text-white font-semibold">
+          ← Back to Store
+        </a>
+        <a href="https://wa.me/21626905747" target="_blank" class="bg-green-600 hover:bg-green-700 py-2 px-4 rounded text-white font-semibold">
+          📲 WhatsApp
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-gray-800 py-6 text-center text-gray-400 text-sm">
+    © 2025 GGifts. All rights reserved.
+  </footer>
 
   <script>
     const params = new URLSearchParams(window.location.search);
