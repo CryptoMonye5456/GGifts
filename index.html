@@ -128,13 +128,25 @@
 
     <script>
       function filterProducts() {
-        const input = document.getElementById("searchInput").value.toLowerCase()
-        const cards = document.querySelectorAll("section[id] .grid > div")
-        cards.forEach((card) => {
-          const title = card.querySelector("h4").innerText.toLowerCase()
-          card.style.display = title.includes(input) ? "block" : "none"
-        })
-      }
+  const input = document.getElementById("searchInput").value.toLowerCase();
+  const sections = document.querySelectorAll("section[id]");
+
+  sections.forEach(section => {
+    const cards = section.querySelectorAll(".grid > div");
+    let matchFound = false;
+
+    cards.forEach(card => {
+      const title = card.querySelector("h4").innerText.toLowerCase();
+      const isMatch = title.includes(input);
+      card.style.display = isMatch ? "block" : "none";
+      if (isMatch) matchFound = true;
+    });
+
+    // Show or hide the entire section based on whether a match was found
+    section.style.display = (input === "" || matchFound) ? "block" : "none";
+  });
+}
+
 
       // Replace ${...} with real HTML since templates don't render here
       document.body.innerHTML = document.body.innerHTML.replace(/\$\{createProduct\((.*?)\)\}/g, (_, args) => {
@@ -156,7 +168,7 @@
         <div class="bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition">
           <img src="${logoMap[name] || logoMap['GTA V']}" alt="${name}" class="w-16 h-16 mx-auto mb-4" />
           <h4 class="text-xl font-bold text-center mb-2">${name} ${detail}</h4>
-          <p class="text-center text-gray-400 mb-1">Instant delivery</p>
+          <p class="text-center text-gray-400 mb-1">${name === 'Free Fire' ? 'DiamondS' : 'Instant delivery'}</p>
           <p class="text-center text-indigo-400 mb-4">Price: ${price}</p>
           <a href="checkout.html" class="block w-full text-center bg-indigo-500 hover:bg-indigo-600 py-2 rounded font-semibold">
           Buy Now
