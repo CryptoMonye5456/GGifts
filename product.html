@@ -25,57 +25,58 @@
       </ul>
 
      <div class="mt-6 flex gap-4 flex-wrap">
-    <a href="https://ggifts.vercel.app/" class="bg-indigo-600 hover:bg-indigo-700 py-2 px-4 rounded text-white font-semibold">
+    <a href="https://ggifts.vercel.app/" class="bg-red-600 hover:bg-red-700 py-2 px-4 rounded text-white font-semibold">
       ← Back to Store
     </a>
-    <a href="https://wa.me/21626905747" target="_blank" class="bg-green-600 hover:bg-green-700 py-2 px-4 rounded text-white font-semibold">
+    <a href="https://wa.me/21626905747" target="_blank" class="bg-indigo-600 hover:bg-indigo-700 py-2 px-4 rounded text-white font-semibold">
       📲 WhatsApp
     </a>
-    <!-- Buy Now button -->
-<!-- Buy Now button -->
 <!-- Buy Now button -->
 <button id="buyNowBtn" class="bg-green-600 hover:bg-green-700 py-2 px-4 rounded text-white font-semibold">
   Buy Now
 </button>
 
 <!-- Payment Methods Modal -->
-<div id="paymentModal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center hidden">
-  <div class="bg-gray-800 rounded-lg p-6 max-w-sm w-full text-white relative">
-    <button id="closeModal" class="absolute top-2 right-3 text-gray-400 hover:text-white text-2xl font-bold">&times;</button>
-    <h2 class="text-2xl font-bold mb-4">Payment Methods</h2>
-    <ul class="list-disc list-inside space-y-2 text-lg">
-      <li>
-        <a href="https://d17.tn/ar" target="_blank" class="hover:underline text-indigo-400">
-          D17
-        </a>
-      </li>
-      <li>
-        <a href="#" target="_blank" class="hover:underline text-indigo-400">
-          Flouce
-        </a>
-      </li>
-      <li>
-        <a href="https://www.binance.com/" target="_blank" class="hover:underline text-indigo-400">
-          Binance
-        </a>
-      </li>
-      <li>
-        <a href="https://www.bybit.com/" target="_blank" class="hover:underline text-indigo-400">
-          Bybit
-        </a>
-      </li>
-    </ul>
-    <p class="mt-4 italic text-gray-400">Please contact us on WhatsApp after payment.</p>
+<div id="paymentModal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center hidden z-50 transition-opacity duration-300 ease-in-out">
+  <div class="bg-gray-900 rounded-2xl p-6 w-full max-w-md text-white shadow-2xl relative border border-indigo-500">
+    <button id="closeModal" class="absolute top-3 right-4 text-gray-400 hover:text-white text-2xl font-bold">
+      &times;
+    </button>
+    <h2 class="text-3xl font-bold text-indigo-400 mb-6 text-center">Choose a Payment Method</h2>
+
+    <div class="space-y-3">
+      <select id="paymentSelect" class="w-full p-3 rounded-xl bg-gray-800 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-200">
+        <option selected disabled>Select Payment Method</option>
+        <option value="https://d17.tn/ar">🔵 D17</option>
+        <option value="https://fr.flouci.com/">🟠 Flouce</option>
+        <option value="https://www.binance.com/">🟡 Binance</option>
+        <option value="https://www.bybit.com/">🟣 Bybit</option>
+      </select>
+
+      <button id="payNowBtn" disabled class="w-full bg-indigo-600 hover:bg-indigo-700 py-3 rounded-xl text-white font-semibold opacity-50 cursor-not-allowed transition-all duration-300">
+        🚀 Pay Now
+      </button>
+    </div>
+
+    <p class="mt-6 text-center italic text-gray-400">
+      After payment, contact us via WhatsApp with a screenshot. 📲
+    </p>
   </div>
 </div>
+
 
 <script>
   const buyNowBtn = document.getElementById('buyNowBtn');
   const paymentModal = document.getElementById('paymentModal');
   const closeModal = document.getElementById('closeModal');
+  const paymentSelect = document.getElementById('paymentSelect');
+  const payNowBtn = document.getElementById('payNowBtn');
 
   buyNowBtn.addEventListener('click', () => {
     paymentModal.classList.remove('hidden');
+    paymentSelect.value = "Select Payment Method"; // Reset on open
+    payNowBtn.disabled = true;
+    payNowBtn.classList.add('opacity-50', 'cursor-not-allowed');
   });
 
   closeModal.addEventListener('click', () => {
@@ -87,7 +88,26 @@
       paymentModal.classList.add('hidden');
     }
   });
+
+  paymentSelect.addEventListener('change', () => {
+    if (paymentSelect.value && paymentSelect.value !== "#") {
+      payNowBtn.disabled = false;
+      payNowBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+    } else {
+      payNowBtn.disabled = true;
+      payNowBtn.classList.add('opacity-50', 'cursor-not-allowed');
+    }
+  });
+
+  payNowBtn.addEventListener('click', () => {
+    const url = paymentSelect.value;
+    if (url && url !== "#") {
+      window.open(url, "_blank");
+    }
+  });
 </script>
+
+
       </div>
     </div>
   </main>
