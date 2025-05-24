@@ -1,54 +1,61 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GGifts - Game Gift Card Store</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      .hero-bg {
-        background-image: url('https://reloadhero-cms.imgix.net/305a12fc-1074-41d0-8116-2504c187bb94.webp?auto=format&fit=max&w=3840');
-        background-size: cover;
-        background-position: center;
-      }
-    </style>
-  </head>
-  <body class="bg-gray-900 text-white scroll-smooth">
-    <!-- Navbar -->
-    <nav class="bg-gray-800 px-6 py-4 flex justify-between items-center">
-      <h1 class="text-2xl font-bold text-indigo-400">GGifts</h1>
-      <div class="space-x-6">
-        <a href="#" class="text-gray-300 hover:text-white">Home</a>
-        <a href="#freefire" class="text-gray-300 hover:text-white">Free Fire</a>
-        <a href="#fortnite" class="text-gray-300 hover:text-white">Fortnite</a>
-        <a href="#netflix" class="text-gray-300 hover:text-white">Netflix</a>
-        <a href="#games" class="text-gray-300 hover:text-white">Games</a>
-      </div>
-    </nav>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GGifts - Game Gift Card Store</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .hero-bg {
+      background-image: url('https://reloadhero-cms.imgix.net/305a12fc-1074-41d0-8116-2504c187bb94.webp?auto=format&fit=max&w=3840');
+      background-size: cover;
+      background-position: center;
+    }
+    .glass {
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(10px);
+    }
+  </style>
+</head>
+<body class="bg-gray-950 text-white scroll-smooth font-sans">
 
-    <!-- Hero Section -->
-    <section class="text-center py-20 hero-bg">
-      <div class="bg-black bg-opacity-60 py-10 px-4 rounded-lg inline-block">
-        <h2 class="text-4xl font-extrabold mb-4">Buy Gift Cards For Games</h2>
-        <p class="text-lg text-gray-200">Fast, Secure & Easy Payments with GGifts</p>
-        <a href="#freefire" class="mt-6 inline-block bg-white text-black font-semibold py-2 px-4 rounded hover:bg-gray-100">
-          Start Shopping
-        </a>
-      </div>
-    </section>
+  <!-- Navbar -->
+  <nav class="bg-gray-900 px-6 py-4 flex justify-between items-center shadow-md">
+    <h1 class="text-3xl font-extrabold text-indigo-500 tracking-wide">GGifts</h1>
+    <div class="space-x-6 text-sm font-medium">
+      <a href="#" class="text-gray-300 hover:text-indigo-400 transition">Home</a>
+      <a href="#freefire" class="text-gray-300 hover:text-indigo-400 transition">Free Fire</a>
+      <a href="#fortnite" class="text-gray-300 hover:text-indigo-400 transition">Fortnite</a>
+      <a href="#netflix" class="text-gray-300 hover:text-indigo-400 transition">Netflix</a>
+      <a href="#games" class="text-gray-300 hover:text-indigo-400 transition">Games</a>
+    </div>
+  </nav>
 
-    <!-- Search Filter -->
-    <section class="px-6 py-4 bg-gray-900">
-      <input
-        type="text"
-        placeholder="Search games..."
-        id="searchInput"
-        class="w-full p-3 rounded bg-gray-800 text-white border border-gray-700"
-        onkeyup="filterProducts()"
-      />
-    </section>
+  <!-- Hero -->
+  <section class="hero-bg text-center py-32">
+    <div class="glass py-10 px-6 rounded-2xl inline-block max-w-2xl">
+      <h2 class="text-5xl font-extrabold mb-4 text-white">Buy Gift Cards For Games</h2>
+      <p class="text-lg text-gray-300 mb-6">Fast, Secure & Easy Payments with GGifts</p>
+      <a href="#freefire" class="inline-block bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-2 px-6 rounded-full transition duration-300">
+        Start Shopping
+      </a>
+    </div>
+  </section>
 
-    <!-- Sections -->
+  <!-- Search -->
+  <section class="px-6 py-8 bg-gray-950">
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="🔍 Search games..."
+      class="w-full p-4 rounded-xl bg-gray-900 text-white border border-gray-700 placeholder-gray-500 focus:ring-2 focus:ring-indigo-500 focus:outline-none"
+      onkeyup="filterProducts()"
+    />
+  </section>
+
+  <!-- Sections -->
+  <!-- Product Sections Stay Here - They're Dynamically Replaced -->
+ <!-- Sections -->
     <section id="freefire" class="px-6 py-12 bg-gray-900">
       <h3 class="text-3xl font-bold text-center mb-10">Free Fire 💎</h3>
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
@@ -112,64 +119,61 @@
         ${createProduct("Forza Horizon 5", "", "30 TND")}
       </div>
     </section>
+  <!-- Footer -->
+  <footer class="bg-gray-900 py-6 text-center text-gray-400 text-sm">
+    © 2025 GGifts. All rights reserved.
+  </footer>
 
-  
-    <!-- Footer -->
-    <footer class="bg-gray-800 py-6 text-center text-gray-400 text-sm">
-      © 2025 GGifts. All rights reserved.
-    </footer>
+  <!-- Product Card Rendering Logic -->
+  <script>
+    function filterProducts() {
+      const input = document.getElementById("searchInput").value.toLowerCase();
+      const sections = document.querySelectorAll("section[id]");
 
-    <script>
-      function filterProducts() {
-  const input = document.getElementById("searchInput").value.toLowerCase();
-  const sections = document.querySelectorAll("section[id]");
+      sections.forEach(section => {
+        const cards = section.querySelectorAll(".grid > div");
+        let matchFound = false;
 
-  sections.forEach(section => {
-    const cards = section.querySelectorAll(".grid > div");
-    let matchFound = false;
+        cards.forEach(card => {
+          const title = card.querySelector("h4").innerText.toLowerCase();
+          const isMatch = title.includes(input);
+          card.style.display = isMatch ? "block" : "none";
+          if (isMatch) matchFound = true;
+        });
 
-    cards.forEach(card => {
-      const title = card.querySelector("h4").innerText.toLowerCase();
-      const isMatch = title.includes(input);
-      card.style.display = isMatch ? "block" : "none";
-      if (isMatch) matchFound = true;
-    });
-
-    // Show or hide the entire section based on whether a match was found
-    section.style.display = (input === "" || matchFound) ? "block" : "none";
-  });
-}
-
-
-      // Replace ${...} with real HTML since templates don't render here
-      document.body.innerHTML = document.body.innerHTML.replace(/\$\{createProduct\((.*?)\)\}/g, (_, args) => {
-        const [name, detail, price] = args.split(',').map(s => s.trim().replace(/['"]/g, ''));
-        const logoMap = {
-          "Free Fire": "https://images.seeklogo.com/logo-png/50/2/free-fire-logo-png_seeklogo-500424.png",
-          "Fortnite": "https://images.seeklogo.com/logo-png/33/2/fortnite-logo-png_seeklogo-330839.png",
-          "Netflix": "https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg",
-          "GTA V": "https://images.seeklogo.com/logo-png/45/2/grand-theft-auto-v-logo-png_seeklogo-455401.png",
-          "FC 25": "https://images.seeklogo.com/logo-png/50/3/ea-sports-logo-png_seeklogo-501229.png",
-          "PUBG": "https://images.seeklogo.com/logo-png/58/2/pubg-corporation-logo-png_seeklogo-583904.png",
-          "Schedule I": "https://www.scheduleonegame.com/img/extended-logo.png",
-          "Red Dead Redemption 2": "https://images.seeklogo.com/logo-png/45/2/red-dead-redemption-2-logo-png_seeklogo-457375.png",
-          "Minecraft": "https://images.seeklogo.com/logo-png/31/2/minecraft-logo-png_seeklogo-316451.png",
-          "Roblox": "https://images.seeklogo.com/logo-png/36/2/roblox-logo-png_seeklogo-365972.png",
-          "Forza Horizon 5": "https://images.seeklogo.com/logo-png/40/2/forza-horizon-5-logo-png_seeklogo-406612.png"
-        };
-        return `
-        <div class="bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition">
-          <img src="${logoMap[name] || logoMap['GTA V']}" alt="${name}" class="w-16 h-16 mx-auto mb-4" />
-          <h4 class="text-xl font-bold text-center mb-2">${name} ${detail}</h4>
-          <p class="text-center text-gray-400 mb-1">${name === 'Free Fire' ? 'Diamonds' : 'Instant delivery'}</p>
-          <p class="text-center text-indigo-400 mb-4">Price: ${price}</p>
-          <a href="product.html?name=${encodeURIComponent(name)}&detail=${encodeURIComponent(detail)}&price=${encodeURIComponent(price)}" class="block w-full text-center bg-indigo-500 hover:bg-indigo-600 py-2 rounded font-semibold">
-
-          Buy Now
-         </a>
-        </div>
-        `;
+        section.style.display = (input === "" || matchFound) ? "block" : "none";
       });
-    </script>
-  </body>
+    }
+
+    document.body.innerHTML = document.body.innerHTML.replace(/\$\{createProduct\((.*?)\)\}/g, (_, args) => {
+      const [name, detail, price] = args.split(',').map(s => s.trim().replace(/['"]/g, ''));
+      const logoMap = {
+        "Free Fire": "https://images.seeklogo.com/logo-png/50/2/free-fire-logo-png_seeklogo-500424.png",
+        "Fortnite": "https://images.seeklogo.com/logo-png/33/2/fortnite-logo-png_seeklogo-330839.png",
+        "Netflix": "https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg",
+        "GTA V": "https://images.seeklogo.com/logo-png/45/2/grand-theft-auto-v-logo-png_seeklogo-455401.png",
+        "FC 25": "https://images.seeklogo.com/logo-png/50/3/ea-sports-logo-png_seeklogo-501229.png",
+        "PUBG": "https://images.seeklogo.com/logo-png/58/2/pubg-corporation-logo-png_seeklogo-583904.png",
+        "Schedule I": "https://www.scheduleonegame.com/img/extended-logo.png",
+        "Red Dead Redemption 2": "https://images.seeklogo.com/logo-png/45/2/red-dead-redemption-2-logo-png_seeklogo-457375.png",
+        "Minecraft": "https://images.seeklogo.com/logo-png/31/2/minecraft-logo-png_seeklogo-316451.png",
+        "Roblox": "https://images.seeklogo.com/logo-png/36/2/roblox-logo-png_seeklogo-365972.png",
+        "Forza Horizon 5": "https://images.seeklogo.com/logo-png/40/2/forza-horizon-5-logo-png_seeklogo-406612.png"
+      };
+
+      return `
+        <div class="bg-gray-900 border border-gray-800 rounded-xl p-6 shadow-lg hover:shadow-2xl transition-transform duration-300 transform hover:-translate-y-1">
+          <img src="${logoMap[name] || logoMap['GTA V']}" alt="${name}" class="w-16 h-16 mx-auto mb-4 rounded-full" />
+          <h4 class="text-xl font-bold text-center mb-2">${name} ${detail}</h4>
+          <p class="text-center text-gray-400 mb-1">${name === 'Free Fire' ? 'Diamonds' : 'Instant Delivery'}</p>
+          <p class="text-center text-indigo-400 font-semibold text-lg mb-4">Price: ${price}</p>
+          <a href="product.html?name=${encodeURIComponent(name)}&detail=${encodeURIComponent(detail)}&price=${encodeURIComponent(price)}"
+             class="block w-full text-center bg-indigo-600 hover:bg-indigo-700 py-2 rounded-lg font-semibold transition">
+            Buy Now
+          </a>
+        </div>
+      `;
+    });
+  </script>
+</body>
 </html>
