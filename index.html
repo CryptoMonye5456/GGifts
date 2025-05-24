@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>GGifts - Game Gift Card Store</title>
+  <link rel="icon" href="https://sdmntprnortheu.oaiusercontent.com/files/00000000-e0ec-61f4-92c7-a2385edbbc16/raw?se=2025-05-24T22%3A33%3A48Z&sp=r&sv=2024-08-04&sr=b&scid=a37cb1e8-139a-5eaf-b4c3-298d57e0f033&skoid=0a4a0f0c-99ac-4752-9d87-cfac036fa93f&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-05-24T06%3A29%3A44Z&ske=2025-05-25T06%3A29%3A44Z&sks=b&skv=2024-08-04&sig=LrlI5Ag89m0duE44nPjt6Z/een%2BT1yYcZFCb4FOGQbo%3D">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     .hero-bg {
@@ -54,71 +55,64 @@
   </section>
 
   <!-- Sections -->
-  <!-- Product Sections Stay Here - They're Dynamically Replaced -->
- <!-- Sections -->
-    <section id="freefire" class="px-6 py-12 bg-gray-900">
-      <h3 class="text-3xl font-bold text-center mb-10">Free Fire 💎</h3>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-        <!-- Free Fire Products -->
-        ${createProduct("Free Fire", "100 + 10", "3.5 TND")}
-        ${createProduct("Free Fire", "210 + 21", "7 TND")}
-        ${createProduct("Free Fire", "530 + 53", "18 TND")}
-        ${createProduct("Free Fire", "1080 + 108", "31 TND")}
-      </div>
-    </section>
-    
-    <section id="freefire" class="px-6 py-12 bg-gray-900">
-      <h3 class="text-3xl font-bold text-center mb-10">PUBG Mobile UC</h3>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-      <!-- PUBG Mobile UC -->
-        ${createProduct("PUBG", "325 UC", "15 TND")}
-        ${createProduct("PUBG", "660 UC", "28 TND")}
-        ${createProduct("PUBG", "1800 UC", "67 TND")}
-        ${createProduct("PUBG", "3850 UC", "134 TND")}
-       </div>
-    </section>
+  <section id="freefire" class="px-6 py-12 bg-gray-900">
+    <h3 class="text-3xl font-bold text-center mb-10">Free Fire 💎</h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+      ${createProduct("Free Fire", "100 + 10", "3.5 TND")}
+      ${createProduct("Free Fire", "210 + 21", "7 TND")}
+      ${createProduct("Free Fire", "530 + 53", "18 TND")}
+      ${createProduct("Free Fire", "1080 + 108", "31 TND")}
+    </div>
+  </section>
+  
+  <section id="freefire" class="px-6 py-12 bg-gray-900">
+    <h3 class="text-3xl font-bold text-center mb-10">PUBG Mobile UC</h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+      ${createProduct("PUBG", "325 UC", "15 TND")}
+      ${createProduct("PUBG", "660 UC", "28 TND")}
+      ${createProduct("PUBG", "1800 UC", "67 TND")}
+      ${createProduct("PUBG", "3850 UC", "134 TND")}
+    </div>
+  </section>
 
-    <section id="fortnite" class="px-6 py-12 bg-gray-900">
-      <h3 class="text-3xl font-bold text-center mb-10">Fortnite V-Buck 🎮</h3>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-        <!-- Fortnite Products -->
-        ${createProduct("Fortnite", "V-Bucks 1000", "31 TND")}
-        ${createProduct("Fortnite", "V-Bucks 2800", "72 TND")}
-        ${createProduct("Fortnite", "V-Bucks 5000", "114 TND")}
-      </div>
-    </section>
-    
-    <section id="fortnite" class="px-6 py-12 bg-gray-900">
-      <h3 class="text-3xl font-bold text-center mb-10">Roblox 🎮</h3>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-        <!-- Fortnite Products -->
-        ${createProduct("Roblox", "1700 Robux", "62 TND")}
-        ${createProduct("Roblox", "4500 Robux", "145 TND")}
-        ${createProduct("Roblox", "10000 Robux", "285 TND")}
-      </div>
-    </section>
+  <section id="fortnite" class="px-6 py-12 bg-gray-900">
+    <h3 class="text-3xl font-bold text-center mb-10">Fortnite V-Buck 🎮</h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+      ${createProduct("Fortnite", "V-Bucks 1000", "31 TND")}
+      ${createProduct("Fortnite", "V-Bucks 2800", "72 TND")}
+      ${createProduct("Fortnite", "V-Bucks 5000", "114 TND")}
+    </div>
+  </section>
+  
+  <section id="fortnite" class="px-6 py-12 bg-gray-900">
+    <h3 class="text-3xl font-bold text-center mb-10">Roblox 🎮</h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+      ${createProduct("Roblox", "1700 Robux", "62 TND")}
+      ${createProduct("Roblox", "4500 Robux", "145 TND")}
+      ${createProduct("Roblox", "10000 Robux", "285 TND")}
+    </div>
+  </section>
 
-    <section id="netflix" class="px-6 py-12 bg-gray-900">
-      <h3 class="text-3xl font-bold text-center mb-10">Netflix - Premium 📺</h3>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-        <!-- Netflix Products -->
-        ${createProduct("Netflix", "Premium Plan 1 Month", "77 TND")}
-        ${createProduct("Netflix", "Premium Plan 12 Month", "545 TND")}
-      </div>
-    </section>
+  <section id="netflix" class="px-6 py-12 bg-gray-900">
+    <h3 class="text-3xl font-bold text-center mb-10">Netflix - Premium 📺</h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+      ${createProduct("Netflix", "Premium Plan 1 Month", "77 TND")}
+      ${createProduct("Netflix", "Premium Plan 12 Month", "545 TND")}
+    </div>
+  </section>
 
-    <section id="games" class="px-6 py-12 bg-gray-900">
-      <h3 class="text-3xl font-bold text-center mb-10">Games 🕹️</h3>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-        <!-- Game Products -->
-        ${createProduct("GTA V", "", "46 TND")}
-        ${createProduct("Red Dead Redemption 2", "", "55 TND")}
-        ${createProduct("FC 25", "", "30 TND")}
-        ${createProduct("Schedule I", "", "25 TND")}
-        ${createProduct("Minecraft", "Java & Bedrock Edition", "85 TND")}
-        ${createProduct("Forza Horizon 5", "", "30 TND")}
-      </div>
-    </section>
+  <section id="games" class="px-6 py-12 bg-gray-900">
+    <h3 class="text-3xl font-bold text-center mb-10">Games 🕹️</h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+      ${createProduct("GTA V", "", "46 TND")}
+      ${createProduct("Red Dead Redemption 2", "", "55 TND")}
+      ${createProduct("FC 25", "", "30 TND")}
+      ${createProduct("Schedule I", "", "25 TND")}
+      ${createProduct("Minecraft", "Java & Bedrock Edition", "85 TND")}
+      ${createProduct("Forza Horizon 5", "", "30 TND")}
+    </div>
+  </section>
+
   <!-- Footer -->
   <footer class="bg-gray-900 py-6 text-center text-gray-400 text-sm">
     © 2025 GGifts. All rights reserved.
