@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Binance Payment - GGifts</title>
-<link rel="icon" href="https://sdmntprnortheu.oaiusercontent.com/files/00000000-e0ec-61f4-92c7-a2385edbbc16/raw?se=2025-05-24T22%3A33%3A48Z&sp=r&sv=2024-08-04&sr=b&scid=a37cb1e8-139a-5eaf-b4c3-298d57e0f033&skoid=0a4a0f0c-99ac-4752-9d87-cfac036fa93f&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-05-24T06%3A29%3A44Z&ske=2025-05-25T06%3A29%3A44Z&sks=b&skv=2024-08-04&sig=LrlI5Ag89m0duE44nPjt6Z/een%2BT1yYcZFCb4FOGQbo%3D">
+  <link rel="icon" href="https://sdmntprnortheu.oaiusercontent.com/files/00000000-e0ec-61f4-92c7-a2385edbbc16/raw?se=2025-05-24T22%3A33%3A48Z&sp=r&sv=2024-08-04&sr=b&scid=a37cb1e8-139a-5eaf-b4c3-298d57e0f033&skoid=0a4a0f0c-99ac-4752-9d87-cfac036fa93f&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-05-24T06%3A29%3A44Z&ske=2025-05-25T06%3A29%3A44Z&sks=b&skv=2024-08-04&sig=LrlI5Ag89m0duE44nPjt6Z/een%2BT1yYcZFCb4FOGQbo%3D">
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-900 text-white flex flex-col min-h-screen">
@@ -13,12 +13,12 @@
     <div class="max-w-md bg-gray-800 rounded-2xl shadow-lg p-8 text-center border border-indigo-500">
       <h1 class="text-4xl font-bold mb-6 text-indigo-400">Binance Payment</h1>
 
-      <p class="mb-2 text-gray-300 text-lg">USDT TRC20</p>
-      <p id="usdtPrice" class="text-green-400 font-bold mb-6 text-lg">Loading price...</p>
+      <p class="mb-2 text-gray-300 text-lg">USDT (TRC20)</p>
+      <p id="usdPrice" class="text-green-400 font-bold mb-6 text-lg">Loading price...</p>
 
       <!-- QR Code Image -->
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAnsAAAJ7AQMAAACh+sXUAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAGUExURQAAAP///6XZn90AAAAJcEhZcwAADsMAAA7DAcdvqGQAAAQTSURBVHja7Z3BcqMwDIad4ZBjrntglkfJo7WPlkfxTg695pgDU+0GEJYNTWcTp/1T/bqEBvtDPzJoBHYaVuxF3kPYisRpU62R2foQdiKHZd+OQAIJJJBAApGBpp1MlH92zttNlNG07SFtytSHQAJvAAYCHQAbnkNeejjAU5g389z5Ytub3NkkoB5mY4NSDxgIxAvKb3gPG39BaeE9dHhz6Ah8xijPdaTJt8Ou3Y2S/xP4qzawuuQG3sPqQWnhPcQ/h5Ts4RziA/HP4RfeYLdD19fLtyPQFI83ncMbgS28h8Gfh/iS8YGBQDxgE9xdKQ5vsBPFWEwVYzRKstwZbPFo7CmAHYGMMoCHjb9h0/JK4d3mNuDCytksJuuZVHfH9JhvBQZ6eDewgfewOrCF9zAQeDewo2QHkts8D8oyo85ln+l1tU9l4LE2UOAlR0q+GygE4gEZZQ/AZ4hy2S4WL/NGWykeTyHsLx2Wz2CxgcGfZPxz6BBYPShbeMkNvIf4QN4cakjWQlCmnV32Ms9MbMleAIaseBzWNYwNqwMDPLDz5yE+sOXAdhBlXikexuFDgKOZx58frdeTlDvnPsOn5tutLW8rAQUeePQnuYf3MHJg4wEjgXhA8Qgs53CqnRNbzeTb/FtNo48AHuE9PNUGRngg/rCJ/jxklD3cbRzeYB8wsMtZLyFLo+X0mJCek66whcAawOjPw+rAIz3EGzY9r2UHkp8DKJpG07fTI+Ts6ana/pLMF8sn1DoCHQADvIcto0wggQReAUqa9RKzivE1LQDUIyvQvDPUvWcCCSSQQAIJrAkczNR6XaIMthmaal4zU1jGWm/hBIEEEkgggbYhPcQCSmGxeJlnFjGMBZ6Z9rKfHOpMewIJJJBAAglEBva6v6Tkhxk+T4myywpOtY5AAgkkkEACcYHZ408tBOdFeuUiBq0yJXt6KlPBeTECCSSQQAIJxAVe21k8PW1W0mjWkEACCSSQQALRgXPxmArBTVq5ILqZHTk3newZimqUQAIJJJBAAtGAK5YXjwsbdu2mP/pP3jwSSOCnwMhzSCDAsOnhPYz+Lr1jfQ9XbIUSQ55vQzaRVG1rXKkFrO5hhAdSMoEIQenhPeS17MHDh0huyq5aMZqacLCxYb4Uokyjb7WBkUAHQRF4YO9v2DgMSnUP//gbNudnCUo5PcYAN+bQg+0nirEB+P7BL4XeCYy1gW/wHgo8sIc/hw6DQiCBnoBmkd5G2UOD3cRulq/4poYEEkgggQQ+CTDAA79ccvZj0ZJN9lxPvdWBHbyHDiU3/oJCyZRMyT9KsjGljKabJo0ekhPKNkcWeGCkZEqmZEqmZM+SF1YWj2p9Kh5Deq83mv4vherACO8hJVPyj5Rc3cMjJVPy90uW+Bd6nL3cnU24owAAAABJRU5ErkJggg==" alt="QR Code"
-        class="mx-auto w-48 h-48 mb-6 rounded-xl border border-indigo-400" />
+      <img src="https://www.qr-code-generator.com/wp-content/themes/qr/new_structure/assets/media/images/default-preview.png" 
+           alt="QR Code" class="mx-auto w-48 h-48 mb-6 rounded-xl border border-indigo-400" />
 
       <!-- Wallet Address -->
       <p id="walletAddress" class="text-indigo-300 font-mono break-all select-all mb-4">
@@ -43,7 +43,13 @@
   </footer>
 
   <script>
-    // Handle copy
+    // Price converter: TND to USD
+    const params = new URLSearchParams(window.location.search);
+    const tndPrice = parseFloat(params.get("price"));
+    const usd = (tndPrice * 0.35).toFixed(2);
+    document.getElementById("usdPrice").textContent = `Price: $${usd} USD`;
+
+    // Copy wallet address to clipboard
     const copyBtn = document.getElementById('copyBtn');
     const copyMessage = document.getElementById('copyMessage');
     const walletAddress = document.getElementById('walletAddress').textContent;
@@ -54,12 +60,6 @@
         setTimeout(() => copyMessage.classList.add('hidden'), 2000);
       });
     });
-
-    // Load and convert price
-    const params = new URLSearchParams(window.location.search);
-    const tndPrice = parseFloat(params.get("price"));
-    const usdt = (tndPrice / 3).toFixed(2);
-    document.getElementById("usdtPrice").textContent = `Price: ${usdt} USDT`;
   </script>
 
 </body>

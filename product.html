@@ -4,41 +4,42 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Product Details - GGifts</title>
-<link rel="icon" href="https://sdmntprnortheu.oaiusercontent.com/files/00000000-e0ec-61f4-92c7-a2385edbbc16/raw?se=2025-05-24T22%3A33%3A48Z&sp=r&sv=2024-08-04&sr=b&scid=a37cb1e8-139a-5eaf-b4c3-298d57e0f033&skoid=0a4a0f0c-99ac-4752-9d87-cfac036fa93f&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-05-24T06%3A29%3A44Z&ske=2025-05-25T06%3A29%3A44Z&sks=b&skv=2024-08-04&sig=LrlI5Ag89m0duE44nPjt6Z/een%2BT1yYcZFCb4FOGQbo%3D">
-
+  <link rel="icon" href="https://sdmntprnortheu.oaiusercontent.com/files/00000000-e0ec-61f4-92c7-a2385edbbc16/raw?se=2025-05-24T22%3A33%3A48Z&sp=r&sv=2024-08-04&sr=b&scid=a37cb1e8-139a-5eaf-b4c3-298d57e0f033&skoid=0a4a0f0c-99ac-4752-9d87-cfac036fa93f&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-05-24T06%3A29%3A44Z&ske=2025-05-25T06%3A29%3A44Z&sks=b&skv=2024-08-04&sig=LrlI5Ag89m0duE44nPjt6Z/een%2BT1yYcZFCb4FOGQbo%3D">
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-900 text-white flex flex-col min-h-screen">
 
-  <main class="flex-grow px-6 py-10">
-    <div class="max-w-2xl mx-auto bg-gray-800 rounded-xl shadow-lg p-6">
-      <h2 class="text-3xl font-bold mb-4" id="productName">Loading...</h2>
-      <img id="productImage" src="" alt="" class="w-20 h-20 mb-4" />
+<main class="flex-grow px-6 py-10">
+  <div class="max-w-2xl mx-auto bg-gray-800 rounded-xl shadow-lg p-6">
+    <h2 class="text-3xl font-bold mb-4" id="productName">Loading...</h2>
+    <img id="productImage" src="" alt="" class="w-20 h-20 mb-4" />
 
-      <p class="mb-4 text-gray-300" id="productDetail"></p>
-      <p class="mb-4 text-indigo-400 font-bold" id="productPrice"></p>
+    <p class="mb-4 text-gray-300" id="productDetail"></p>
+    <p class="mb-4 text-indigo-400 font-bold" id="productPrice"></p>
 
-      <h3 class="text-xl font-semibold mt-6 mb-2">How to Use:</h3>
-      <ul class="list-disc list-inside text-gray-300">
-        <li>Click the button below to connect on WhatsApp</li>
-        <li>Send a screenshot or product name</li>
-        <li>Proceed with payment (D17, Binance, Bybit, Flouce, Face to Face.)</li>
-        <li>Receive your gift instantly</li>
-      </ul>
+    <h3 class="text-xl font-semibold mt-6 mb-2">How to Use:</h3>
+    <ul class="list-disc list-inside text-gray-300">
+      <li>Click the button below to connect on WhatsApp</li>
+      <li>Send a screenshot or product name</li>
+      <li>Proceed with payment (D17, Binance, Bybit, Flouce, Face to Face.)</li>
+      <li>Receive your gift instantly</li>
+    </ul>
 
-     <div class="mt-6 flex gap-4 flex-wrap">
-    <a href="https://ggifts.vercel.app/" class="bg-red-600 hover:bg-red-700 py-2 px-4 rounded text-white font-semibold">
-      ← Back to Store
-    </a>
-    <a href="https://wa.me/21626905747" target="_blank" class="bg-indigo-600 hover:bg-indigo-700 py-2 px-4 rounded text-white font-semibold">
-      📲 WhatsApp
-    </a>
-<!-- Buy Now button -->
-<button id="buyNowBtn" class="bg-green-600 hover:bg-green-700 py-2 px-4 rounded text-white font-semibold">
-  Buy Now
-</button>
+    <div class="mt-6 flex gap-4 flex-wrap">
+      <a href="https://ggifts.vercel.app/" class="bg-red-600 hover:bg-red-700 py-2 px-4 rounded text-white font-semibold">
+        ← Back to Store
+      </a>
+      <a href="https://wa.me/21626905747" target="_blank" class="bg-indigo-600 hover:bg-indigo-700 py-2 px-4 rounded text-white font-semibold">
+        📲 WhatsApp
+      </a>
+      <button id="buyNowBtn" class="bg-green-600 hover:bg-green-700 py-2 px-4 rounded text-white font-semibold">
+        Buy Now
+      </button>
+    </div>
+  </div>
+</main>
 
-<!-- Payment Methods Modal -->
+<!-- Payment Modal -->
 <div id="paymentModal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center hidden z-50 transition-opacity duration-300 ease-in-out">
   <div class="bg-gray-900 rounded-2xl p-6 w-full max-w-md text-white shadow-2xl relative border border-indigo-500">
     <button id="closeModal" class="absolute top-3 right-4 text-gray-400 hover:text-white text-2xl font-bold">
@@ -51,7 +52,7 @@
         <option selected disabled>Select Payment Method</option>
         <option value="https://d17.tn/ar">🔵 D17</option>
         <option value="https://fr.flouci.com/">🟠 Flouce</option>
-        <option value="https://www.binance.com/">🟡 Binance</option>
+        <option value="binance-payment.html" data-gateway="binance">🟡 Binance</option>
         <option value="https://www.bybit.com/">🟣 Bybit</option>
       </select>
 
@@ -66,8 +67,38 @@
   </div>
 </div>
 
+<!-- Footer -->
+<footer class="bg-gray-800 py-6 text-center text-gray-400 text-sm">
+  © 2025 GGifts. All rights reserved.
+</footer>
 
+<!-- Main Script -->
 <script>
+  const params = new URLSearchParams(window.location.search);
+  const name = params.get("name");
+  const detail = params.get("detail");
+  const price = params.get("price");
+
+  const logoMap = {
+    "Free Fire": "https://images.seeklogo.com/logo-png/50/2/free-fire-logo-png_seeklogo-500424.png",
+    "Fortnite": "https://images.seeklogo.com/logo-png/33/2/fortnite-logo-png_seeklogo-330839.png",
+    "Netflix": "https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg",
+    "GTA V": "https://images.seeklogo.com/logo-png/45/2/grand-theft-auto-v-logo-png_seeklogo-455401.png",
+    "FC 25": "https://images.seeklogo.com/logo-png/50/3/ea-sports-logo-png_seeklogo-501229.png",
+    "PUBG": "https://images.seeklogo.com/logo-png/58/2/pubg-corporation-logo-png_seeklogo-583904.png",
+    "Schedule I": "https://www.scheduleonegame.com/img/extended-logo.png",
+    "Red Dead Redemption 2": "https://images.seeklogo.com/logo-png/45/2/red-dead-redemption-2-logo-png_seeklogo-457375.png",
+    "Minecraft": "https://images.seeklogo.com/logo-png/31/2/minecraft-logo-png_seeklogo-316451.png",
+    "Roblox": "https://images.seeklogo.com/logo-png/36/2/roblox-logo-png_seeklogo-365972.png",
+    "Forza Horizon 5": "https://images.seeklogo.com/logo-png/40/2/forza-horizon-5-logo-png_seeklogo-406612.png"
+  };
+
+  document.getElementById("productName").textContent = `${name} ${detail || ""}`;
+  document.getElementById("productDetail").textContent = detail ? `Details: ${detail}` : "No additional detail.";
+  document.getElementById("productPrice").textContent = `Price: ${price}`;
+  document.getElementById("productImage").src = logoMap[name] || "";
+  document.getElementById("productImage").alt = name;
+
   const buyNowBtn = document.getElementById('buyNowBtn');
   const paymentModal = document.getElementById('paymentModal');
   const closeModal = document.getElementById('closeModal');
@@ -76,7 +107,7 @@
 
   buyNowBtn.addEventListener('click', () => {
     paymentModal.classList.remove('hidden');
-    paymentSelect.value = "Select Payment Method"; // Reset on open
+    paymentSelect.value = "Select Payment Method";
     payNowBtn.disabled = true;
     payNowBtn.classList.add('opacity-50', 'cursor-not-allowed');
   });
@@ -102,48 +133,19 @@
   });
 
   payNowBtn.addEventListener('click', () => {
-    const url = paymentSelect.value;
-    if (url && url !== "#") {
+    const selected = paymentSelect.options[paymentSelect.selectedIndex];
+    const url = selected.value;
+    const gateway = selected.getAttribute('data-gateway');
+
+    if (gateway === "binance") {
+      const encodedPrice = encodeURIComponent(price);
+      const encodedProduct = encodeURIComponent(name);
+      window.open(`binance-payment.html?price=${encodedPrice}&product=${encodedProduct}`, "_blank");
+    } else if (url && url !== "#") {
       window.open(url, "_blank");
     }
   });
 </script>
-
-
-      </div>
-    </div>
-  </main>
-
-  <footer class="bg-gray-800 py-6 text-center text-gray-400 text-sm">
-    © 2025 GGifts. All rights reserved.
-  </footer>
-
-  <script>
-    const params = new URLSearchParams(window.location.search);
-    const name = params.get("name");
-    const detail = params.get("detail");
-    const price = params.get("price");
-
-    const logoMap = {
-      "Free Fire": "https://images.seeklogo.com/logo-png/50/2/free-fire-logo-png_seeklogo-500424.png",
-      "Fortnite": "https://images.seeklogo.com/logo-png/33/2/fortnite-logo-png_seeklogo-330839.png",
-      "Netflix": "https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg",
-      "GTA V": "https://images.seeklogo.com/logo-png/45/2/grand-theft-auto-v-logo-png_seeklogo-455401.png",
-      "FC 25": "https://images.seeklogo.com/logo-png/50/3/ea-sports-logo-png_seeklogo-501229.png",
-      "PUBG": "https://images.seeklogo.com/logo-png/58/2/pubg-corporation-logo-png_seeklogo-583904.png",
-      "Schedule I": "https://www.scheduleonegame.com/img/extended-logo.png",
-      "Red Dead Redemption 2": "https://images.seeklogo.com/logo-png/45/2/red-dead-redemption-2-logo-png_seeklogo-457375.png",
-      "Minecraft": "https://images.seeklogo.com/logo-png/31/2/minecraft-logo-png_seeklogo-316451.png",
-      "Roblox": "https://images.seeklogo.com/logo-png/36/2/roblox-logo-png_seeklogo-365972.png",
-      "Forza Horizon 5": "https://images.seeklogo.com/logo-png/40/2/forza-horizon-5-logo-png_seeklogo-406612.png"
-    };
-
-    document.getElementById("productName").textContent = `${name} ${detail || ""}`;
-    document.getElementById("productDetail").textContent = detail ? `Details: ${detail}` : "No additional detail.";
-    document.getElementById("productPrice").textContent = `Price: ${price}`;
-    document.getElementById("productImage").src = logoMap[name] || "";
-    document.getElementById("productImage").alt = name;
-  </script>
 
 </body>
 </html>
