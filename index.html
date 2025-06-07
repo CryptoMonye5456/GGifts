@@ -53,8 +53,32 @@
       onkeyup="filterProducts()"
     />
   </section>
-
+        <!-- Quick Game Access Section -->
+<section class="px-6 py-12 bg-gray-950 text-center">
+  <h3 class="text-3xl font-bold text-indigo-400 mb-6">🎯 Quick Access</h3>
+  <p class="text-gray-400 mb-8">Jump directly to your favorite game and start shopping instantly!</p>
+  <div class="flex flex-wrap justify-center gap-4">
+    <a href="#games" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-6 rounded-full transition duration-300">Games</a>
+    <a href="#freefire" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-6 rounded-full transition duration-300">Free Fire</a>
+    <a href="#PUBG" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-6 rounded-full transition duration-300">PUBG</a>
+    <a href="#fortnite" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-6 rounded-full transition duration-300">Fortnite</a>
+    <a href="#Roblox" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-6 rounded-full transition duration-300">Roblox</a>
+    <a href="#netflix" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-6 rounded-full transition duration-300">Netflix</a>
+  </div>
+</section>
   <!-- Sections -->
+  <section id="games" class="px-6 py-12 bg-gray-900">
+    <h3 class="text-3xl font-bold text-center mb-10">Games 🕹️</h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+      ${createProduct("GTA V", "", "46 TND")}
+      ${createProduct("Red Dead Redemption 2", "", "65 TND")}
+      ${createProduct("FC 25", "", "60 TND")}
+      ${createProduct("Schedule I", "", "40 TND")}
+      ${createProduct("Minecraft", "Java & Bedrock Edition", "85 TND")}
+      ${createProduct("Forza Horizon 5", "", "60 TND")}
+    </div>
+  </section>
+  
   <section id="freefire" class="px-6 py-12 bg-gray-900">
     <h3 class="text-3xl font-bold text-center mb-10">Free Fire 💎</h3>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
@@ -98,18 +122,6 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
       ${createProduct("Netflix", "Premium Plan 1 Month", "77 TND")}
       ${createProduct("Netflix", "Premium Plan 12 Month", "545 TND")}
-    </div>
-  </section>
-
-  <section id="games" class="px-6 py-12 bg-gray-900">
-    <h3 class="text-3xl font-bold text-center mb-10">Games 🕹️</h3>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-      ${createProduct("GTA V", "", "46 TND")}
-      ${createProduct("Red Dead Redemption 2", "", "65 TND")}
-      ${createProduct("FC 25", "", "60 TND")}
-      ${createProduct("Schedule I", "", "40 TND")}
-      ${createProduct("Minecraft", "Java & Bedrock Edition", "85 TND")}
-      ${createProduct("Forza Horizon 5", "", "60 TND")}
     </div>
   </section>
 

@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Product Details - GGifts</title>
-  <link rel="icon" href="https://sdmntprnortheu.oaiusercontent.com/files/00000000-e0ec-61f4-92c7-a2385edbbc16/raw?se=2025-05-24T22%3A33%3A48Z&sp=r&sv=2024-08-04&sr=b&scid=a37cb1e8-139a-5eaf-b4c3-298d57e0f033&skoid=0a4a0f0c-99ac-4752-9d87-cfac036fa93f&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-05-24T06%3A29%3A44Z&ske=2025-05-25T06%3A29%3A44Z&sks=b&skv=2024-08-04&sig=LrlI5Ag89m0duE44nPjt6Z/een%2BT1yYcZFCb4FOGQbo%3D">
+  <link rel="icon" href="https://sdmntprnortheu.oaiusercontent.com/files/00000000-e0ec-61f4-92c7-a2385edbbc16/raw">
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-900 text-white flex flex-col min-h-screen">
@@ -41,7 +41,7 @@
 </main>
 
 <!-- Payment Modal -->
-<div id="paymentModal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center hidden z-50 transition-opacity duration-300 ease-in-out">
+<div id="paymentModal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center hidden z-50">
   <div class="bg-gray-900 rounded-2xl p-6 w-full max-w-md text-white shadow-2xl relative border border-indigo-500">
     <button id="closeModal" class="absolute top-3 right-4 text-gray-400 hover:text-white text-2xl font-bold">
       &times;
@@ -49,13 +49,28 @@
     <h2 class="text-3xl font-bold text-indigo-400 mb-6 text-center">Choose a Payment Method</h2>
 
     <div class="space-y-3">
-      <select id="paymentSelect" class="w-full p-3 rounded-xl bg-gray-800 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-200">
-        <option selected disabled>Select Payment Method</option>
-        <option value="https://d17.tn/ar">🔵 D17</option>
-        <option value="https://fr.flouci.com/">🟠 Flouce</option>
-        <option value="binance-payment.html" data-gateway="binance">🟡 Binance</option>
-        <option value="https://www.bybit.com/">🟣 Bybit</option>
-      </select>
+      <div id="customDropdown" class="relative">
+        <button id="dropdownButton" class="w-full flex items-center justify-between bg-gray-800 p-3 rounded-xl border border-gray-600">
+          <span id="selectedOption" class="flex items-center gap-3 text-gray-400">Select Payment Method</span>
+          <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <div id="dropdownMenu" class="absolute hidden w-full bg-gray-800 mt-2 rounded-xl shadow-lg z-10 border border-gray-700">
+          <div class="p-3 hover:bg-gray-700 flex items-center gap-3 cursor-pointer" data-url="https://d17.tn/ar">
+            <img src="https://th.bing.com/th/id/OIP.lnAPUmm-YWaK1VJcxmJrKQHaDn?w=318&h=170&c=7&r=0&o=7&pid=1.7&rm=3" alt="D17" class="w-6 h-6"> D17
+          </div>
+          <div class="p-3 hover:bg-gray-700 flex items-center gap-3 cursor-pointer" data-url="https://fr.flouci.com/">
+            <img src="https://th.bing.com/th/id/OIP.M7Oh1K8HZF5QdMlElzohXgHaHa?w=171&h=180&c=7&r=0&o=7&pid=1.7&rm=3" alt="Flouce" class="w-6 h-6"> Flouce
+          </div>
+          <div class="p-3 hover:bg-gray-700 flex items-center gap-3 cursor-pointer" data-url="binance-payment.html" data-gateway="binance">
+            <img src="https://th.bing.com/th/id/ODLS.21e3026f-1c6a-465a-ac18-03e76f45d8cc?w=32&h=32&qlt=90&pcl=fffffc&o=6&pid=1.2" alt="Binance" class="w-6 h-6"> Binance
+          </div>
+          <div class="p-3 hover:bg-gray-700 flex items-center gap-3 cursor-pointer" data-url="https://www.bybit.com/">
+            <img src="https://th.bing.com/th/id/ODLS.a9a1ff26-c679-4d3b-b466-faff6d4a0369?w=32&h=32&qlt=90&pcl=fffffc&o=6&pid=1.2" alt="Bybit" class="w-6 h-6"> Bybit
+          </div>
+        </div>
+      </div>
 
       <button id="payNowBtn" disabled class="w-full bg-indigo-600 hover:bg-indigo-700 py-3 rounded-xl text-white font-semibold opacity-50 cursor-not-allowed transition-all duration-300">
         🚀 Pay Now
@@ -68,7 +83,6 @@
   </div>
 </div>
 
-<!-- Footer -->
 <footer class="bg-gray-800 py-6 text-center text-gray-400 text-sm">
   © 2025 GGifts. All rights reserved.
 </footer>
@@ -103,14 +117,36 @@
   const buyNowBtn = document.getElementById('buyNowBtn');
   const paymentModal = document.getElementById('paymentModal');
   const closeModal = document.getElementById('closeModal');
-  const paymentSelect = document.getElementById('paymentSelect');
   const payNowBtn = document.getElementById('payNowBtn');
+
+  const dropdownButton = document.getElementById('dropdownButton');
+  const dropdownMenu = document.getElementById('dropdownMenu');
+  const selectedOption = document.getElementById('selectedOption');
+
+  let selectedPayment = null;
+
+  dropdownButton.addEventListener('click', () => {
+    dropdownMenu.classList.toggle('hidden');
+  });
+
+  dropdownMenu.querySelectorAll('div[data-url]').forEach(option => {
+    option.addEventListener('click', () => {
+      const url = option.getAttribute('data-url');
+      const gateway = option.getAttribute('data-gateway');
+      selectedPayment = { url, gateway };
+      selectedOption.innerHTML = option.innerHTML;
+      payNowBtn.disabled = false;
+      payNowBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+      dropdownMenu.classList.add('hidden');
+    });
+  });
 
   buyNowBtn.addEventListener('click', () => {
     paymentModal.classList.remove('hidden');
-    paymentSelect.value = "Select Payment Method";
+    selectedOption.innerHTML = `<span class="text-gray-400">Select Payment Method</span>`;
     payNowBtn.disabled = true;
     payNowBtn.classList.add('opacity-50', 'cursor-not-allowed');
+    selectedPayment = null;
   });
 
   closeModal.addEventListener('click', () => {
@@ -123,26 +159,14 @@
     }
   });
 
-  paymentSelect.addEventListener('change', () => {
-    if (paymentSelect.value && paymentSelect.value !== "#") {
-      payNowBtn.disabled = false;
-      payNowBtn.classList.remove('opacity-50', 'cursor-not-allowed');
-    } else {
-      payNowBtn.disabled = true;
-      payNowBtn.classList.add('opacity-50', 'cursor-not-allowed');
-    }
-  });
-
   payNowBtn.addEventListener('click', () => {
-    const selected = paymentSelect.options[paymentSelect.selectedIndex];
-    const url = selected.value;
-    const gateway = selected.getAttribute('data-gateway');
-
+    if (!selectedPayment) return;
+    const { url, gateway } = selectedPayment;
     if (gateway === "binance") {
       const encodedPrice = encodeURIComponent(price);
       const encodedProduct = encodeURIComponent(name);
       window.open(`binance-payment.html?price=${encodedPrice}&product=${encodedProduct}`, "_blank");
-    } else if (url && url !== "#") {
+    } else {
       window.open(url, "_blank");
     }
   });
