@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BYBIT Payment - GGifts</title>
+  <link rel="icon" href="https://sdmntprnortheu.oaiusercontent.com/files/00000000-e0ec-61f4-92c7-a2385edbbc16/raw?se=2025-05-24T22%3A33%3A48Z&sp=r&sv=2024-08-04&sr=b&scid=a37cb1e8-139a-5eaf-b4c3-298d57e0f033&skoid=0a4a0f0c-99ac-4752-9d87-cfac036fa93f&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-05-24T06%3A29%3A44Z&ske=2025-05-25T06%3A29%3A44Z&sks=b&skv=2024-08-04&sig=LrlI5Ag89m0duE44nPjt6Z/een%2BT1yYcZFCb4FOGQbo%3D">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white flex flex-col min-h-screen">
+
+  <main class="flex-grow px-6 py-10 flex flex-col items-center justify-center">
+    <div class="max-w-md bg-gray-800 rounded-2xl shadow-lg p-8 text-center border border-indigo-500">
+      
+      <!-- Binance Logo centered on top -->
+      <img 
+        src="https://th.bing.com/th/id/ODLS.a9a1ff26-c679-4d3b-b466-faff6d4a0369?w=32&h=32&qlt=90&pcl=fffffc&o=6&pid=1.2" 
+        alt="BYBIT Logo" 
+        class="mx-auto mb-4 w-20 h-20"
+      />
+
+      <h1 class="text-4xl font-bold mb-6 text-indigo-400">BYBIT Payment</h1>
+      
+      <p class="mb-2 text-gray-300 text-lg">USDT (TRC20)</p>
+      <p id="usdPrice" class="text-green-400 font-bold mb-6 text-lg">Loading price...</p>
+
+      <!-- QR Code Image -->
+      <img src="data:image/png;base64,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" 
+           alt="QR Code" class="mx-auto w-48 h-48 mb-6 rounded-xl border border-indigo-400" />
+
+      <!-- Wallet Address -->
+      <p id="walletAddress" class="text-indigo-300 font-mono break-all select-all mb-4">
+        TCR9pvvFCzqxPhveXXN7xpcdk8QcSSoUeA
+      </p>
+
+      <!-- Copy Button -->
+      <button id="copyBtn" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-6 rounded-lg transition">
+        Copy Address
+      </button>
+      <p id="copyMessage" class="mt-3 text-green-400 hidden">Copied to clipboard!</p>
+
+      <!-- Back to Store -->
+      <a href="https://ggifts.vercel.app/" class="block mt-6 bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-6 rounded-lg transition">
+        ← Back to Store
+      </a>
+    </div>
+  </main>
+
+  <footer class="bg-gray-800 py-6 text-center text-gray-400 text-sm">
+    © 2025 GGifts. All rights reserved.
+  </footer>
+
+  <script>
+    // Price converter: TND to USD
+    const params = new URLSearchParams(window.location.search);
+    const tndPrice = parseFloat(params.get("price"));
+    const usd = (tndPrice * 0.35).toFixed(2);
+    document.getElementById("usdPrice").textContent = `Price: $${usd} USD`;
+
+    // Copy wallet address to clipboard
+    const copyBtn = document.getElementById('copyBtn');
+    const copyMessage = document.getElementById('copyMessage');
+    const walletAddress = document.getElementById('walletAddress').textContent;
+
+    copyBtn.addEventListener('click', () => {
+      navigator.clipboard.writeText(walletAddress).then(() => {
+        copyMessage.classList.remove('hidden');
+        setTimeout(() => copyMessage.classList.add('hidden'), 2000);
+      });
+    });
+  </script>
+
+</body>
+</html>
